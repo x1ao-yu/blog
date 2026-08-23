@@ -13,14 +13,43 @@ export const en: Translation = {
 	[Key.searchContent]: "Content",
 	[Key.searchViewMore]: "View more results ({count} more)",
 	[Key.other]: "Other",
+
+	// Navbar menu groups
+	[Key.navArticles]: "Articles",
+	[Key.navSocial]: "Social",
+	[Key.navMine]: "Mine",
+	[Key.navAbout]: "About",
+	[Key.navLinks]: "Links",
 	[Key.all]: "All",
 
 	[Key.tags]: "Tags",
 	[Key.categories]: "Categories",
+	[Key.allCategories]: "All Categories",
+	[Key.allTags]: "All Tags",
 	[Key.recentPosts]: "Recent Posts",
 	[Key.postList]: "Post List",
 	[Key.tableOfContents]: "Table of Contents",
+	[Key.tocEmpty]: "No table of contents on this page",
 	[Key.music]: "Music",
+	[Key.dynamic]: "Moments",
+	[Key.latestDynamics]: "Latest Moments",
+	[Key.moreDynamics]: "More moments",
+	[Key.dynamicDescription]: "Short thoughts and everyday moments.",
+	[Key.dynamicEmpty]: "No moments have been posted yet",
+	[Key.dynamicSearch]: "Search moments...",
+	[Key.dynamicNoResults]: "No matching moments found",
+	[Key.dynamicLoading]: "Loading moments",
+	[Key.dynamicAllYears]: "All years",
+	[Key.dynamicLoadMore]: "Load more",
+	[Key.dynamicBackToList]: "Back to moments",
+	[Key.dynamicProfile]: "View {name}'s profile",
+	[Key.dynamicPermalink]: "Permalink to this moment",
+	[Key.dynamicCollapseGallery]: "Collapse",
+	[Key.dynamicViewOriginal]: "View full size",
+	[Key.dynamicPreviousImage]: "Previous image",
+	[Key.dynamicNextImage]: "Next image",
+	[Key.dynamicViewImage]: "View image {index}",
+	[Key.dynamicSelectImage]: "Select image {index}",
 	[Key.musicNoPlaying]: "No playing",
 	[Key.musicLyrics]: "Lyrics",
 	[Key.musicVolume]: "Volume",
@@ -53,6 +82,13 @@ export const en: Translation = {
 	[Key.friends]: "Friends",
 	[Key.friendsDescription]:
 		"Here are my friends, welcome to visit and communicate with each other",
+	[Key.searchFriends]: "Search friends...",
+	[Key.friendsEmpty]: "No friends yet.",
+	[Key.booknav]: "Bookmark Nav",
+	[Key.booknavDescription]:
+		"A curated collection of useful sites, organized by category.",
+	[Key.searchBooknav]: "Search bookmarks...",
+	[Key.booknavEmpty]: "No bookmarks yet.",
 	[Key.guestbook]: "Guestbook",
 	[Key.guestbookDescription]:
 		"Welcome to leave your mark here, share your thoughts and suggestions",
@@ -66,6 +102,8 @@ export const en: Translation = {
 	[Key.minutesCount]: "minutes",
 	[Key.postCount]: "post",
 	[Key.postsCount]: "posts",
+	[Key.tagsCount]: "tags",
+	[Key.noData]: "No data yet",
 
 	[Key.themeColor]: "Theme Color",
 
@@ -74,6 +112,7 @@ export const en: Translation = {
 	[Key.systemMode]: "System",
 
 	[Key.more]: "More",
+	[Key.collapse]: "Collapse",
 
 	[Key.author]: "Author",
 	[Key.publishedAt]: "Published at",
@@ -120,6 +159,9 @@ export const en: Translation = {
 	[Key.bangumiEmpty]: "No Data",
 	[Key.bangumiEmptyReason]:
 		"Possible reasons: username does not exist, network connection issue, or API limit",
+	[Key.bangumiFetchError]: "Bangumi Data Fetch Failed",
+	[Key.bangumiFetchErrorDesc]:
+		"Failed to fetch data from Bangumi API during build. This page is temporarily unavailable.",
 	[Key.bangumiUsername]: "Username",
 	[Key.bangumiApi]: "API",
 	[Key.bangumiConfigTip]:
@@ -142,6 +184,105 @@ export const en: Translation = {
 	[Key.bangumiUpdatedAt]: "Build time",
 	[Key.bangumiDataStatic]: "Static data",
 
+	// VNDB
+	[Key.vndb]: "VNDB",
+	[Key.vndbSubtitle]: "My visual novel list from VNDB",
+	[Key.vndbFilterAll]: "All",
+	[Key.vndbFilterVoted]: "Voted",
+	[Key.vndbFilterUnvoted]: "Unvoted",
+	[Key.vndbFilterNotes]: "With notes",
+	[Key.vndbStatusWishlist]: "Wishlist",
+	[Key.vndbStatusPlaying]: "Playing",
+	[Key.vndbStatusFinished]: "Finished",
+	[Key.vndbStatusStalled]: "Stalled",
+	[Key.vndbStatusDropped]: "Dropped",
+	[Key.vndbStatusUnknown]: "Unknown",
+	[Key.vndbNoData]: "No Data",
+	[Key.vndbNoDataDescription]: "No items in this category",
+	[Key.vndbEmpty]: "No Data",
+	[Key.vndbEmptyReason]:
+		"Possible reasons: user ID does not exist, list is private, network issue, or API limit",
+	[Key.vndbFetchError]: "VNDB Data Fetch Failed",
+	[Key.vndbFetchErrorDesc]:
+		"Failed to fetch data from VNDB API during build. This page is temporarily unavailable.",
+	[Key.vndbNotConfigured]: "VNDB User ID Not Configured",
+	[Key.vndbNotConfiguredDesc]:
+		"Please configure your VNDB user ID in src/config/siteConfig.ts",
+	[Key.vndbLastUpdated]: "Data updated at",
+	[Key.vndbVotes]: "votes",
+	[Key.vndbLengthVeryShort]: "Very short",
+	[Key.vndbLengthShort]: "Short",
+	[Key.vndbLengthMedium]: "Medium",
+	[Key.vndbLengthLong]: "Long",
+	[Key.vndbLengthVeryLong]: "Very long",
+
+	// Anime Tracking - Bilibili
+	[Key.bilibili]: "Bilibili",
+	[Key.bilibiliSubtitle]: "My Bilibili follow list (anime + drama)",
+	[Key.bilibiliNotConfigured]: "Bilibili not configured",
+	[Key.bilibiliNotConfiguredDesc]:
+		"Configure bilibili.uid in src/config/siteConfig.ts",
+
+	// Anime Tracking - Shared components
+	[Key.animeTotal]: "Total",
+	[Key.animeAverageRating]: "Avg Rating",
+	[Key.animeSearch]: "Search anime...",
+	[Key.animeAllTypes]: "All",
+	[Key.animeTV]: "TV Anime",
+	[Key.animeMovie]: "Movie",
+	[Key.animeRatingDesc]: "Highest Rating",
+	[Key.animeRatingAsc]: "Lowest Rating",
+	[Key.animeDateDesc]: "Newest",
+	[Key.animeDateAsc]: "Oldest",
+	[Key.animeNoResults]: "No matching anime found",
+	[Key.animeLastUpdated]: "Data updated at",
+	[Key.animeEpStatus]: "Progress",
+	[Key.animeViewDetails]: "View Details",
+	[Key.animeBilibiliAvg]: "Bilibili Avg",
+	[Key.animeNoOverview]: "No synopsis available",
+	[Key.animeClose]: "Close",
+	[Key.animeSynopsis]: "Synopsis",
+	[Key.animeWatchNow]: "Watch Now",
+	[Key.animeAllWithCount]: "All ({count})",
+	[Key.animeTVWithCount]: "TV ({count})",
+	[Key.animeMovieWithCount]: "Movie ({count})",
+	[Key.animeTypeAnime]: "Anime",
+	[Key.animeTypeMovie]: "Movie",
+	[Key.animeTypeDocumentary]: "Documentary",
+	[Key.animeTypeChinese]: "Chinese Animation",
+	[Key.animeTypeDrama]: "Drama",
+	[Key.animeTypeConcert]: "Concert",
+
+	// MyAnimeList
+	[Key.mal]: "MyAnimeList",
+	[Key.malSubtitle]: "My anime and manga lists from MyAnimeList",
+	[Key.malCategoryAnime]: "Anime",
+	[Key.malCategoryManga]: "Manga",
+	[Key.malFilterAll]: "All",
+	[Key.malStatusWatching]: "Watching",
+	[Key.malStatusReading]: "Reading",
+	[Key.malStatusCompleted]: "Completed",
+	[Key.malStatusOnHold]: "On Hold",
+	[Key.malStatusDropped]: "Dropped",
+	[Key.malStatusPlanToWatch]: "Plan to Watch",
+	[Key.malStatusPlanToRead]: "Plan to Read",
+	[Key.malNoData]: "No Data",
+	[Key.malNoDataDescription]: "No items in this category",
+	[Key.malEmpty]: "No Data",
+	[Key.malEmptyReason]:
+		"Possible reasons: username does not exist, list is private, invalid Client ID, or network issue",
+	[Key.malFetchError]: "MyAnimeList Data Fetch Failed",
+	[Key.malFetchErrorDesc]:
+		"Failed to fetch data from MyAnimeList API during build. Please check the username and Client ID, and make sure the list is public.",
+	[Key.malNotConfigured]: "MyAnimeList Not Configured",
+	[Key.malNotConfiguredDesc]:
+		"Please configure your MyAnimeList username and Client ID in src/config/siteConfig.ts. The list must be public.",
+	[Key.malLastUpdated]: "Data updated at",
+	[Key.malSeasonWinter]: "Winter",
+	[Key.malSeasonSpring]: "Spring",
+	[Key.malSeasonSummer]: "Summer",
+	[Key.malSeasonFall]: "Fall",
+
 	// Pagination
 	[Key.paginationFirst]: "First",
 	[Key.paginationPrev]: "Previous",
@@ -151,6 +292,7 @@ export const en: Translation = {
 	[Key.paginationOf]: "of",
 	[Key.paginationTotal]: ", Total",
 	[Key.paginationRecords]: " records",
+	[Key.paginationJump]: "Jump to page",
 
 	// 404 Page
 	[Key.notFound]: "404",
@@ -200,16 +342,46 @@ export const en: Translation = {
 	// Pinned
 	[Key.pinned]: "Pinned",
 
+	// Related Posts
+	[Key.relatedPosts]: "Related Posts",
+	[Key.randomPosts]: "Random Posts",
+	[Key.smartRecommend]: "Smart",
+	[Key.randomRecommend]: "Random",
+	[Key.noRelatedPosts]: "No related posts",
+	[Key.noRandomPosts]: "No random posts",
+
+	// Encrypted
+	[Key.postEncrypted]: "This post is encrypted",
+
 	// Wallpaper Mode
 	[Key.wallpaperMode]: "Wallpaper Mode",
 	[Key.wallpaperBannerMode]: "Banner Wallpaper",
+	[Key.wallpaperFullscreenMode]: "Fullscreen Wallpaper",
 	[Key.wallpaperOverlayMode]: "Overlay Wallpaper",
 	[Key.wallpaperNoneMode]: "None Wallpaper",
 
-	// Banner Settings
-	[Key.bannerSettings]: "Banner Settings",
-	[Key.bannerTitle]: "Home Banner Title",
+	// Wallpaper Settings
+	[Key.wallpaperSettings]: "Wallpaper Settings",
+	[Key.wallpaperTitle]: "Home Wallpaper Title",
+	[Key.wallpaperCarousel]: "Wallpaper Carousel",
 	[Key.wavesAnimation]: "Waves Animation",
+	[Key.gradientTransition]: "Gradient Transition",
+	[Key.sakuraEffect]: "Sakura Effect",
+	[Key.effectsSettings]: "Effects Settings",
+	[Key.overlaySettings]: "Transparency Settings",
+	[Key.overlayOpacity]: "Wallpaper Opacity",
+	[Key.overlayBlur]: "Background Blur",
+	[Key.overlayCardOpacity]: "Card Opacity",
+
+	// Settings Panel Tabs
+	[Key.settingsTabAppearance]: "Appearance",
+	[Key.settingsTabWallpaper]: "Wallpaper",
+	[Key.settingsTabEffects]: "Effects",
+
+	// Card Style
+	[Key.cardSettings]: "Card Style",
+	[Key.cardBorder]: "Card Border & Shadow",
+	[Key.cardFollowTheme]: "Card Follow Theme Color",
 
 	// Post List Layout
 	[Key.postListLayout]: "Post List Layout",
@@ -241,6 +413,7 @@ export const en: Translation = {
 	// Site Statistics
 	[Key.siteStats]: "Site Statistics",
 	[Key.siteStatsPostCount]: "Posts",
+	[Key.siteStatsDynamicCount]: "Moments",
 	[Key.siteStatsCategoryCount]: "Categories",
 	[Key.siteStatsTagCount]: "Tags",
 	[Key.siteStatsTotalWords]: "Total Words",
@@ -249,6 +422,20 @@ export const en: Translation = {
 	[Key.siteStatsDaysAgo]: "{days} days ago",
 	[Key.siteStatsDays]: "{days} days",
 	[Key.today]: "Today",
+
+	// Site Info
+	[Key.siteInfo]: "Site Info",
+	[Key.siteInfoBuildTime]: "Build Time",
+	[Key.siteInfoBuildPlatform]: "Build Platform",
+	[Key.siteInfoBlogVersion]: "Blog Version",
+	[Key.siteInfoAstroVersion]: "Astro Version",
+	[Key.siteInfoNodeVersion]: "Node Version",
+	[Key.siteInfoPnpmVersion]: "pnpm Version",
+	[Key.siteInfoSystem]: "System",
+	[Key.siteInfoExpand]: "Show build info",
+	[Key.siteInfoCollapse]: "Hide build info",
+	[Key.siteInfoDomain]: "Domain",
+	[Key.siteInfoLicense]: "License",
 
 	// Calendar Component
 	[Key.calendarSunday]: "Sun",
@@ -270,6 +457,9 @@ export const en: Translation = {
 	[Key.calendarOctober]: "Oct",
 	[Key.calendarNovember]: "Nov",
 	[Key.calendarDecember]: "Dec",
+	[Key.calendar]: "Site Calendar",
+	[Key.calendarHeatmapWeek]: "Week {week} of {month}, {count} posts",
+	[Key.advertisement]: "Advertisement",
 
 	[Key.shareArticle]: "Share",
 	[Key.generatingPoster]: "Generating Poster...",
@@ -283,4 +473,31 @@ export const en: Translation = {
 	[Key.codeCollapsibleShowLess]: "Show less",
 	[Key.codeCollapsibleExpanded]: "Code block expanded",
 	[Key.codeCollapsibleCollapsed]: "Code block collapsed",
+
+	// Gallery Page
+	[Key.gallery]: "Gallery",
+	[Key.galleryDescription]: "Capturing beautiful moments in life",
+	[Key.galleryPhotos]: "photos",
+	[Key.galleryAlbums]: "albums",
+	[Key.galleryNoAlbums]: "No albums yet",
+	[Key.galleryBackToAlbums]: "Back to albums",
+	[Key.searchAlbums]: "Search albums...",
+
+	// Password Protection
+	[Key.passwordProtected]: "Password Protected",
+	[Key.passwordProtectedDesc]:
+		"This content is password protected. Please enter the password to view.",
+	[Key.passwordHint]: "Hint",
+	[Key.passwordPlaceholder]: "Enter password",
+	[Key.passwordSubmit]: "Unlock",
+	[Key.passwordError]: "Incorrect password, please try again.",
+	[Key.passwordProtectedRss]:
+		"This article is encrypted. Please visit the website to view it.",
+
+	// Background video player
+	[Key.videoPlay]: "Play background video",
+	[Key.videoPause]: "Pause background video",
+	[Key.videoPrev]: "Previous video",
+	[Key.videoNext]: "Next video",
+	[Key.videoLoadError]: "Video failed to load",
 };
