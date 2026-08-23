@@ -1,7 +1,10 @@
 import { loadRenderers } from "astro:container";
 import { render } from "astro:content";
-import { getContainerRenderer as getMDXRenderer } from "@astrojs/mdx";
+import { getContainerRenderer as getMDXRenderer } from "@astrojs/mdx/container-renderer";
 import rss, { type RSSFeedItem } from "@astrojs/rss";
+import { getContainerRenderer as getSvelteRenderer } from "@astrojs/svelte/container-renderer";
+import I18nKey from "@i18n/i18nKey";
+import { i18n } from "@i18n/translation";
 import { getSortedPosts } from "@utils/content-utils";
 import { formatDateI18nWithTime } from "@utils/date-utils";
 import { url } from "@utils/url-utils";
@@ -19,12 +22,25 @@ function stripInvalidXmlChars(str: string): string {
 	);
 }
 
-export async function GET(context: APIContext) {
+export async function GET(context: APIContext): Promise<Response> {
 	const blog = await getSortedPosts();
-	const renderers = await loadRenderers([getMDXRenderer()]);
+	const renderers = await loadRenderers([
+		getMDXRenderer(),
+		getSvelteRenderer(),
+	]);
 	const container = await AstroContainer.create({ renderers });
 	const feedItems: RSSFeedItem[] = [];
 	for (const post of blog) {
+		if (post.data.password) {
+			feedItems.push({
+				title: post.data.title,
+				pubDate: post.data.published,
+				description: post.data.description || "",
+				link: url(`/posts/${post.id}/`),
+				content: i18n(I18nKey.passwordProtectedRss),
+			});
+			continue;
+		}
 		const { Content } = await render(post);
 		const rawContent = await container.renderToString(Content);
 		const cleanedContent = stripInvalidXmlChars(rawContent);
@@ -41,7 +57,7 @@ export async function GET(context: APIContext) {
 	return rss({
 		title: siteConfig.title,
 		description: siteConfig.subtitle || "No description",
-		site: context.site ?? "https://fuwari.vercel.app",
+		site: context.site ?? "https://firefly.cuteleaf.cn",
 		customData: `<templateTheme>Firefly</templateTheme>
 		<templateThemeVersion>${pkg.version}</templateThemeVersion>
 		<templateThemeUrl>https://github.com/CuteLeaf/Firefly</templateThemeUrl>

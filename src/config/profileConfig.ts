@@ -1,4 +1,4 @@
-import type { ProfileConfig } from "../types/config";
+import type { ProfileConfig } from "../types/profileConfig";
 
 export const profileConfig: ProfileConfig = {
 	// 头像
@@ -7,7 +7,7 @@ export const profileConfig: ProfileConfig = {
 	// 2. src 目录（不以 "/" 开头，自动优化但会增加构建时间，推荐）："assets/images/avatar.webp"
 	// 3. 远程 URL："https://example.com/avatar.jpg"
 	avatar: "assets/images/profile-photo.png",
-	
+
 	// 名字
 	name: "小渔",
 
@@ -22,27 +22,21 @@ export const profileConfig: ProfileConfig = {
 	// showName: true 时显示图标和名称，false 时只显示图标
 	links: [
 		{
-			name: "Bilibli",
-			icon: "fa7-brands:bilibili",
-			url: "https://space.bilibili.com/87836326",
-			showName: false,
-		},
-		{
 			name: "GitHub",
 			icon: "fa7-brands:github",
 			url: "https://github.com/x1ao-yu",
 			showName: false,
 		},
 		{
-			name: "Email",
-			icon: "fa7-solid:envelope",
-			url: "mailto:yuihoyo@outlook.com",
+			name: "Bilibli",
+			icon: "fa7-brands:bilibili",
+			url: "https://space.bilibili.com/87836326",
 			showName: false,
 		},
 		{
-			name: "RSS",
-			icon: "fa7-solid:rss",
-			url: "/rss/",
+			name: "Email",
+			icon: "fa7-solid:envelope",
+			url: "mailto:yuihoyo@outlook.com",
 			showName: false,
 		},
 	],

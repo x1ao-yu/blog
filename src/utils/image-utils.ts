@@ -1,6 +1,6 @@
-import { coverImageConfig } from "@/config/coverImageConfig";
-import { siteConfig } from "@/config/siteConfig";
-import type { ImageFormat } from "@/types/config";
+import { coverImageConfig } from "../config/coverImageConfig";
+import { siteConfig } from "../config/siteConfig";
+import type { ImageFormat } from "../types/config";
 
 const { randomCoverImage } = coverImageConfig;
 
@@ -103,4 +103,24 @@ export function getImageQuality(): number {
 export function getFallbackFormat(): "avif" | "webp" {
 	const formatConfig = siteConfig.imageOptimization?.formats ?? "both";
 	return formatConfig === "avif" ? "avif" : "webp";
+}
+
+/**
+ * 检查是否需要为图片添加 referrerpolicy="no-referrer" 以解决防盗链 403 问题
+ */
+export function shouldAddNoReferrer(urlStr: string): boolean {
+	if (!urlStr.startsWith("http")) return false;
+	const domains = siteConfig.imageOptimization?.noReferrerDomains || [];
+	if (domains.length === 0) return false;
+	try {
+		const hostname = new URL(urlStr).hostname;
+		return domains.some((pattern) => {
+			// 先完整转义正则元字符，再把用户写的 * 通配符还原为 .*
+			const escaped = pattern.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+			const regexPattern = escaped.replace(/\\\*/g, ".*");
+			return new RegExp(`^${regexPattern}$`).test(hostname);
+		});
+	} catch {
+		return false;
+	}
 }
