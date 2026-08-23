@@ -38,14 +38,10 @@ export const backgroundWallpaper: BackgroundWallpaperConfig = {
 	src: {
 		// 桌面背景图片（支持单张或多张随机）
 		// desktop: "assets/images/DesktopWallpaper/d1.avif",
-		desktop: [
-			"assets/images/DesktopWallpaper/141572294_p0.jpg",
-		],
+		desktop: ["assets/images/DesktopWallpaper/141572294_p0.jpg"],
 		// 移动背景图片（支持单张或多张随机）
 		// mobile: "assets/images/MobileWallpaper/m1.avif",
-		mobile: [
-			"assets/images/DesktopWallpaper/141572294_p0.jpg",
-		],
+		mobile: ["assets/images/DesktopWallpaper/141572294_p0.jpg"],
 		// 背景视频播放地址
 		// 支持单个视频路径（字符串）或多个视频循环（数组，参考上面壁纸配置）
 		// 支持远程视频URL，本地视频请放在 public/assets/videos/ 目录下
@@ -74,7 +70,7 @@ export const backgroundWallpaper: BackgroundWallpaperConfig = {
 				"每一次日出都是一个新的开始，每一次日落都是一个美丽的结束。",
 				"对未来的真正慷慨，是把一切都献给现在。",
 				"我们都是时间的过客，珍惜当下的每一刻。",
-				],
+			],
 			// 主页横幅副标题字体大小
 			subtitleSize: "1.5rem",
 			typewriter: {

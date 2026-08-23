@@ -53,14 +53,7 @@ export const siteConfig: SiteConfig = {
 		"小渔同学的赛博领地。记录技术、ACGN和生活的点滴，分享成长的喜悦与挑战。",
 
 	// 站点关键词
-	keywords: [
-		"小渔",
-		"Astro",
-		"ACGN",
-		"博客",
-		"技术博客",
-		"静态博客",
-	],
+	keywords: ["小渔", "Astro", "ACGN", "博客", "技术博客", "静态博客"],
 
 	// 主题色
 	themeColor: {

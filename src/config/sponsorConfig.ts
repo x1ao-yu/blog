@@ -36,7 +36,6 @@ export const sponsorConfig: SponsorConfig = {
 	// 赞助者列表（可选）
 	sponsors: [
 		// 示例：已实名赞助者
-		
 
 		// 示例：匿名赞助者
 		{
