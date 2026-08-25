@@ -1,5 +1,7 @@
 packages:
   - '.'
+overrides:
+  katex: ^0.18.4
 allowBuilds:
   esbuild: true
   workerd: true
