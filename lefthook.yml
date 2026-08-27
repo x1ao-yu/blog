@@ -1,0 +1,11 @@
+# Git 钩子配置：提交前对暂存文件执行 Biome 格式化与安全 lint 修复
+# 手动跳过单次校验：git commit --no-verify
+pre-commit:
+  commands:
+    biome:
+      # 仅当暂存区包含 Biome 支持的文件类型时触发
+      glob: "*.{js,jsx,ts,tsx,mjs,cjs,svelte,astro,vue,json,jsonc,css,graphql}"
+      # --staged 只处理暂存文件；可自动修复的问题直接修复
+      run: npx biome check --write --staged --no-errors-on-unmatched
+      # 将格式化结果重新写回暂存区，保证提交内容即格式化内容
+      stage_fixed: true
