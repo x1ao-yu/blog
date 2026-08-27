@@ -16,8 +16,11 @@
   "src:assets/images/DesktopWallpaper/d1.avif": "8b9bb59ba6bae7d7dd",
   "public:pic/cf-logo.png": "ff6600ff8e088e4f08",
   "public:assets/images/sakura.png": "f6c5d8f5c2d7f7d3df",
-  "src:content/posts/1758054237687.jpg": "93a6b798c7d18e988c",
   "src:assets/images/profile-photo.png": "d6dbdad2d8d7a0b0ad",
   "src:assets/images/512.png": "7a33335831445f354a",
-  "src:assets/images/DesktopWallpaper/141572294_p0.jpg": "d9ece0dbf0e4c1ba93"
+  "src:assets/images/DesktopWallpaper/141572294_p0.jpg": "d9ece0dbf0e4c1ba93",
+  "src:content/posts/test/demo-3.jpg": "6061558b8f86afb286",
+  "src:content/posts/test/demo-2.jpg": "d2dde2c9d8dfa8aeb1",
+  "src:content/posts/test/demo-1.jpg": "7f725a7d735b8c8067",
+  "src:content/posts/hello/1758054237687.jpg": "93a6b798c7d18e988c"
 }
