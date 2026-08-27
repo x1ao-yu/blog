@@ -9,7 +9,8 @@ export const musicPlayerConfig: MusicPlayerConfig = {
 	showInSidebar: true,
 
 	// 使用方式："meting" 使用 Meting API，"local" 使用本地音乐列表
-	mode: "meting",
+	// 本地歌曲由站点自身 CDN 分发，避免海外访问网易 CDN 缓慢；切回在线歌单改回 "meting" 即可
+	mode: "local",
 
 	// 默认音量 (0-1)
 	volume: 0.1,
@@ -48,11 +49,53 @@ export const musicPlayerConfig: MusicPlayerConfig = {
 	local: {
 		playlist: [
 			{
+				name: "璃月 Liyue",
+				artist: "陈致逸 / HOYO-MiX",
+				url: "/assets/music/陈致逸-HOYO-MiX-璃月-Liyue.mp3",
+				cover: "/assets/music/cover/陈致逸-HOYO-MiX-璃月-Liyue.webp",
+				lrc: "/assets/music/lrc/陈致逸-HOYO-MiX-璃月-Liyue.lrc",
+			},
+			{
 				name: "使一颗心免于哀伤",
 				artist: "知更鸟 / HOYO-MiX / Chevy",
 				url: "/assets/music/使一颗心免于哀伤-哼唱.mp3",
 				cover: "/assets/music/cover/109951169585655912.webp",
 				lrc: "",
+			},
+			{
+				name: "多远都要在一起",
+				artist: "G.E.M. 邓紫棋",
+				url: "/assets/music/G.E.M.邓紫棋-多远都要在一起.mp3",
+				cover: "/assets/music/cover/G.E.M.邓紫棋-多远都要在一起.webp",
+				lrc: "/assets/music/lrc/G.E.M.邓紫棋-多远都要在一起.lrc",
+			},
+			{
+				name: "你是永远的盛夏",
+				artist: "Youzee Music",
+				url: "/assets/music/Youzee-Music-你是永远的盛夏.mp3",
+				cover: "/assets/music/cover/Youzee-Music-你是永远的盛夏.webp",
+				lrc: "/assets/music/lrc/Youzee-Music-你是永远的盛夏.lrc",
+			},
+			{
+				name: "唯一",
+				artist: "告五人",
+				url: "/assets/music/告五人-唯一.mp3",
+				cover: "/assets/music/cover/告五人-唯一.webp",
+				lrc: "/assets/music/lrc/告五人-唯一.lrc",
+			},
+			{
+				name: "我怀念的",
+				artist: "孙燕姿",
+				url: "/assets/music/孙燕姿-我怀念的.mp3",
+				cover: "/assets/music/cover/孙燕姿-我怀念的.webp",
+				lrc: "/assets/music/lrc/孙燕姿-我怀念的.lrc",
+			},
+			{
+				name: "皎洁的笑颜 Moonlike Smile",
+				artist: "陈致逸 / HOYO-MiX",
+				url: "/assets/music/陈致逸-HOYO-MiX-皎洁的笑颜-Moonlike-Smile.mp3",
+				cover: "/assets/music/cover/陈致逸-HOYO-MiX-皎洁的笑颜-Moonlike-Smile.webp",
+				lrc: "/assets/music/lrc/陈致逸-HOYO-MiX-皎洁的笑颜-Moonlike-Smile.lrc",
 			},
 		],
 	},
