@@ -94,7 +94,8 @@ export const musicPlayerConfig: MusicPlayerConfig = {
 				name: "皎洁的笑颜 Moonlike Smile",
 				artist: "陈致逸 / HOYO-MiX",
 				url: "/assets/music/陈致逸-HOYO-MiX-皎洁的笑颜-Moonlike-Smile.mp3",
-				cover: "/assets/music/cover/陈致逸-HOYO-MiX-皎洁的笑颜-Moonlike-Smile.webp",
+				cover:
+					"/assets/music/cover/陈致逸-HOYO-MiX-皎洁的笑颜-Moonlike-Smile.webp",
 				lrc: "/assets/music/lrc/陈致逸-HOYO-MiX-皎洁的笑颜-Moonlike-Smile.lrc",
 			},
 		],
