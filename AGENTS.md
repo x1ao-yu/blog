@@ -84,6 +84,14 @@ git commit -m "fix: correct build script"
 ```
 Do not run `git push` unless the user explicitly asks for the changes to be pushed.
 
+## Site Admin (Sveltia CMS)
+
+A Git-based CMS is mounted at `/admin/` for browser-based authoring, served as static files from `public/admin/` (`index.html` + `config.yml`, no build step). The Sveltia bundle is vendored as `sveltia-cms.js` plus `chunks/*.js`.
+
+- Keep the vendored JS byte-identical to the `@sveltia/cms` npm dist; `public/` is excluded from Biome so hooks never reformat it. To upgrade, replace those files with the same files from a newer release.
+- Authentication is GitHub OAuth via the `sveltia-cms-auth` Cloudflare Worker; its URL lives in `config.yml` (`backend.base_url`). No secrets are stored in this repository.
+- Entries are saved as `src/content/posts/<slug>/index.md` with images co-located in the same folder.
+
 ## Security & Configuration Tips
 
 Do not commit secrets, tokens, or service keys in config files. Keep deployment-specific settings in the target platform environment, and review generated files such as `dist`, `src/constants/lqips.json`, and `src/constants/icons.ts` before committing them.
