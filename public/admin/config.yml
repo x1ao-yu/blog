@@ -32,10 +32,10 @@ collections:
     path: '{{slug}}/index' # 存为 <slug>/index.md
     media_folder: '' # 空串 = 图片保存到文章同目录
     public_folder: '' # 空串 = frontmatter/正文写裸文件名（如 image.png）
-    slug: # 站长手填英文/拼音 slug（新建时必填）
+    slug: # 站长手填英文/拼音 slug（新建时必填，位于编辑器侧栏的 Slug 面板）
       editable: true
-      hint: '英文或拼音，小写字母/数字/短横线，如 deploy-opencode；将成为文章目录名与 URL'
-      pattern: ['^[a-z0-9]+(-[a-z0-9]+)*$', '只允许小写字母、数字和短横线']
+      hint: '英文或拼音，小写字母/数字/短横线，如 deploy-opencode；将成为文章目录名与 URL。不能正好是 admin / cms（CMS 安全规则保留名）'
+      pattern: ['^(?!admin$)(?!cms$)[a-z0-9]+(-[a-z0-9]+)*$', '只允许小写字母、数字和短横线；且不能正好是 admin 或 cms（保留名）']
     sortable_fields: [published, title, updated, category]
     fields:
       - { name: title, label: 标题, widget: string }
@@ -64,4 +64,4 @@ collections:
       - { name: comment, label: 开启评论, widget: boolean, default: true }
       - { name: password, label: 访问密码, widget: string, required: false, hint: '留空=无密码' }
       - { name: passwordHint, label: 密码提示, widget: string, required: false }
-      - { name: body, label: 正文, widget: markdown }
+      - { name: body, label: 正文, widget: markdown, required: false }
