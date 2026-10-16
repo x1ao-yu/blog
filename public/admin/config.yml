@@ -1,0 +1,67 @@
+# Sveltia CMS 配置 — yuihoyo.top 站内写作后台
+# 版本：@sveltia/cms 0.245.0（自托管于本目录，升级 = 替换 sveltia-cms.js 与 chunks/ 下同名文件）
+# 文章路径：src/content/posts/<slug>/index.md，图片落文章同目录（与本仓库现状一致）
+
+backend:
+  name: github
+  repo: x1ao-yu/blog
+  branch: master
+  base_url: https://sveltia-cms-auth.wangjinfu2003.workers.dev # 鉴权 Worker（GitHub OAuth 中转）
+  commit_messages:
+    create: 'content: 新建文章 "{{slug}}"'
+    update: 'content: 更新文章 "{{slug}}"'
+    delete: 'content: 删除文章 "{{slug}}"'
+    uploadMedia: 'assets: 上传 {{path}}'
+    deleteMedia: 'assets: 删除 {{path}}'
+
+site_url: https://yuihoyo.top
+display_url: https://yuihoyo.top
+app_title: yuihoyo 内容后台
+
+output:
+  omit_empty_optional_fields: true # 空的可选字段不写盘，避免 Zod optional 报错
+
+media_folder: public/media # 顶层兜底（文章图片实际走集合级 ''，落在文章目录）
+public_folder: /media
+
+collections:
+  - name: posts
+    label: 文章
+    folder: src/content/posts
+    create: true
+    path: '{{slug}}/index' # 存为 <slug>/index.md
+    media_folder: '' # 空串 = 图片保存到文章同目录
+    public_folder: '' # 空串 = frontmatter/正文写裸文件名（如 image.png）
+    slug: # 站长手填英文/拼音 slug（新建时必填）
+      editable: true
+      hint: '英文或拼音，小写字母/数字/短横线，如 deploy-opencode；将成为文章目录名与 URL'
+      pattern: ['^[a-z0-9]+(-[a-z0-9]+)*$', '只允许小写字母、数字和短横线']
+    sortable_fields: [published, title, updated, category]
+    fields:
+      - { name: title, label: 标题, widget: string }
+      - { name: published, label: 发布日期, widget: datetime, type: date, default: '{{now}}' }
+      - { name: updated, label: 更新日期, widget: datetime, type: date, required: false }
+      - { name: draft, label: 草稿, widget: boolean, default: false }
+      - { name: description, label: 摘要, widget: text, required: false }
+      - name: image
+        label: 封面图
+        widget: image
+        required: false
+        hint: '仅支持 png / jpg / jpeg / webp / avif；gif、svg 会导致构建失败；留空则无封面'
+      - name: tags
+        label: 标签
+        widget: list
+        required: false
+        default: []
+        field: { name: tag, label: 标签, widget: string }
+      - { name: category, label: 分类, widget: string, required: false, hint: '如 AI、软件、教程' }
+      - { name: lang, label: 语言, widget: string, required: false, hint: '留空为站点默认' }
+      - { name: pinned, label: 置顶, widget: boolean, default: false }
+      - { name: author, label: 作者, widget: string, required: false }
+      - { name: sourceLink, label: 原文链接, widget: string, required: false }
+      - { name: licenseName, label: 许可名称, widget: string, required: false }
+      - { name: licenseUrl, label: 许可地址, widget: string, required: false }
+      - { name: comment, label: 开启评论, widget: boolean, default: true }
+      - { name: password, label: 访问密码, widget: string, required: false, hint: '留空=无密码' }
+      - { name: passwordHint, label: 密码提示, widget: string, required: false }
+      - { name: body, label: 正文, widget: markdown }
