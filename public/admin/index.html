@@ -6,6 +6,14 @@
 		<meta name="robots" content="noindex, nofollow, noarchive" />
 		<meta name="referrer" content="no-referrer" />
 		<title>内容后台 · yuihoyo.top</title>
+		<style>
+			/* 放大正文编辑器（Sveltia 默认最小高度仅 120px，且无配置项；富文本与 Markdown 源码模式共用 .lexical-root）。
+			   注意：依赖 Sveltia 的类名，升级后可留意该规则是否仍生效。 */
+			.lexical-root,
+			.lexical-root.code .code-block {
+				min-height: 480px !important;
+			}
+		</style>
 		<script src="./sveltia-cms.js"></script>
 	</head>
 	<body data-pagefind-ignore>
