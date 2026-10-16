@@ -65,3 +65,74 @@ collections:
       - { name: password, label: 访问密码, widget: string, required: false, hint: '留空=无密码' }
       - { name: passwordHint, label: 密码提示, widget: string, required: false }
       - { name: body, label: 正文, widget: markdown, required: false }
+
+  - name: dynamic
+    label: 动态
+    label_singular: 动态
+    folder: src/content/dynamic
+    create: true
+    identifier_field: published
+    slug: # 自动生成时间戳文件名（与 scripts/new-dynamic.js 约定一致），不可编辑
+      template: '{{year}}-{{month}}-{{day}}-{{hour}}{{minute}}{{second}}'
+      editable: false
+    path: '{{slug}}'
+    fields:
+      - { name: published, label: 发布时间, widget: datetime, required: true, default: '{{now}}' }
+      - { name: pinned, label: 置顶, widget: boolean, default: false }
+      - { name: location, label: 位置, widget: string, required: false }
+      - { name: body, label: 内容, widget: text, required: false }
+
+  - name: gallery
+    label: 相册
+    label_singular: 相册
+    folder: src/content/gallery
+    create: true
+    identifier_field: name
+    path: '{{slug}}'
+    media_folder: 'public/gallery/{{slug}}' # 照片上传到相册对应的公开目录
+    public_folder: '/gallery/{{slug}}'
+    slug: # 站长手填英文/拼音 id（新建时必填，位于编辑器侧栏的 Slug 面板）
+      editable: true
+      hint: '英文/拼音 id，将成为相册目录名与 URL（如 japan-2025）；不能正好是 admin / cms（CMS 安全规则保留名）'
+      pattern: ['^(?!admin$)(?!cms$)[a-z0-9]+(-[a-z0-9]+)*$', '只允许小写字母、数字和短横线；且不能正好是 admin 或 cms（保留名）']
+    fields:
+      - { name: name, label: 相册名称, widget: string }
+      - { name: description, label: 描述, widget: string, required: false }
+      - { name: date, label: 日期, widget: datetime, type: date, required: false }
+      - { name: location, label: 拍摄地点, widget: string, required: false }
+      - name: tags
+        label: 标签
+        widget: list
+        required: false
+        default: []
+        field: { name: tag, label: 标签, widget: string }
+      - name: cover
+        label: 封面图
+        widget: image
+        required: false
+        hint: '留空自动取相册内 cover.* 或第一张照片；也可从媒体库选择（路径形如 /gallery/<相册id>/xxx.png）'
+      - { name: password, label: 访问密码, widget: string, required: false, hint: '留空则公开' }
+      - { name: passwordHint, label: 密码提示, widget: string, required: false }
+
+  - name: pages
+    label: 页面
+    files:
+      - name: about
+        label: 关于
+        file: src/content/spec/about.md
+        fields:
+          - { name: body, label: 内容, widget: markdown, required: false }
+      - name: friends
+        label: 友情链接
+        file: src/content/spec/friends.md
+        fields:
+          - { name: title, label: 标题, widget: string, required: false }
+          - { name: description, label: 描述, widget: string, required: false }
+          - { name: body, label: 内容, widget: markdown, required: false }
+      - name: guestbook
+        label: 留言板
+        file: src/content/spec/guestbook.md
+        fields:
+          - { name: title, label: 标题, widget: string, required: false }
+          - { name: description, label: 描述, widget: string, required: false }
+          - { name: body, label: 内容, widget: markdown, required: false }
