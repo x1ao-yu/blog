@@ -12,7 +12,7 @@ export type GalleryAlbum = {
 };
 
 // 相册配置
+// 相册元数据已迁移为内容集合：src/content/gallery/<相册id>.md（站内后台「相册」中管理）
 export type GalleryConfig = {
-	albums: GalleryAlbum[];
 	columnWidth?: number; // 瀑布流最小列宽(px)，默认 240，浏览器根据容器宽度自动计算列数
 };

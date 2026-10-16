@@ -2,6 +2,7 @@ import { defineCollection } from "astro:content";
 import type { CollectionConfig } from "astro/content/config";
 import { glob } from "astro/loaders";
 import { type ZodType, z } from "astro/zod";
+import dayjs from "dayjs";
 
 type PostData = {
 	title: string;
@@ -31,6 +32,17 @@ type DynamicData = {
 	published: Date;
 	pinned: boolean;
 	location: string;
+};
+
+type GalleryData = {
+	name: string;
+	description: string;
+	date: string;
+	location: string;
+	tags: string[];
+	cover: string;
+	password: string;
+	passwordHint: string;
 };
 
 type ContentCollection<T> = CollectionConfig<
@@ -82,12 +94,35 @@ const dynamicCollection: ContentCollection<DynamicData> = defineCollection({
 	}),
 });
 
+const galleryCollection: ContentCollection<GalleryData> = defineCollection({
+	loader: glob({ pattern: "**/*.{md,mdx}", base: "./src/content/gallery" }),
+	schema: z.object({
+		name: z.string(),
+		description: z.string().optional().default(""),
+		// 兼容无引号 YAML 日期（会被解析成 Date 对象）与字符串两种形态
+		date: z
+			.union([
+				z.string(),
+				z.date().transform((value) => dayjs(value).format("YYYY-MM-DD")),
+			])
+			.optional()
+			.default(""),
+		location: z.string().optional().default(""),
+		tags: z.array(z.string()).optional().default([]),
+		cover: z.string().optional().default(""),
+		password: z.string().optional().default(""),
+		passwordHint: z.string().optional().default(""),
+	}),
+});
+
 export const collections: {
 	dynamic: typeof dynamicCollection;
+	gallery: typeof galleryCollection;
 	posts: typeof postsCollection;
 	spec: typeof specCollection;
 } = {
 	dynamic: dynamicCollection,
+	gallery: galleryCollection,
 	posts: postsCollection,
 	spec: specCollection,
 };

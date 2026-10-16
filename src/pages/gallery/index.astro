@@ -1,7 +1,8 @@
 ---
+import { getCollection } from "astro:content";
 import { Icon } from "astro-icon/components";
 import AlbumCard from "@/components/pages/gallery/AlbumCard.astro";
-import { galleryConfig, siteConfig } from "@/config";
+import { siteConfig } from "@/config";
 import I18nKey from "@/i18n/i18nKey";
 import { i18n } from "@/i18n/translation";
 import MainGridLayout from "@/layouts/MainGridLayout.astro";
@@ -15,12 +16,16 @@ if (!siteConfig.pages.gallery) {
 const title = i18n(I18nKey.gallery);
 const description = i18n(I18nKey.galleryDescription);
 
-// 构建相册数据（扫描照片、获取封面）
-const albums = galleryConfig.albums.map((album) => {
-	const photos = scanAlbumPhotos(album.id);
-	const cover = getAlbumCover(album, photos);
-	return { ...album, cover, photoCount: photos.length };
-});
+// 构建相册数据（内容集合 + 照片扫描、获取封面），按日期倒序
+const entries = await getCollection("gallery");
+const albums = entries
+	.map((entry) => {
+		const album = { id: entry.id, ...entry.data };
+		const photos = scanAlbumPhotos(album.id);
+		const cover = getAlbumCover(album, photos);
+		return { ...album, cover, photoCount: photos.length };
+	})
+	.sort((a, b) => (b.date || "").localeCompare(a.date || ""));
 
 // 收集所有标签用于筛选
 const allTags = [...new Set(albums.flatMap((a) => a.tags || []))].sort();
