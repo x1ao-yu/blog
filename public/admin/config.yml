@@ -8,11 +8,11 @@ backend:
   branch: master
   base_url: https://sveltia-cms-auth.wangjinfu2003.workers.dev # 鉴权 Worker（GitHub OAuth 中转）
   commit_messages:
-    create: 'content: 新建文章 "{{slug}}"'
-    update: 'content: 更新文章 "{{slug}}"'
-    delete: 'content: 删除文章 "{{slug}}"'
-    uploadMedia: 'assets: 上传 {{path}}'
-    deleteMedia: 'assets: 删除 {{path}}'
+    create: 'docs: 新增文章 "{{slug}}"'
+    update: 'docs: 更新文章 "{{slug}}"'
+    delete: 'docs: 删除文章 "{{slug}}"'
+    uploadMedia: 'chore(assets): 上传图片 {{path}}'
+    deleteMedia: 'chore(assets): 删除图片 {{path}}'
 
 site_url: https://yuihoyo.top
 display_url: https://yuihoyo.top
