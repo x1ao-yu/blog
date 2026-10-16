@@ -1,7 +1,7 @@
 ---
 title: CMS测试
 published: 2026-10-15
-draft: true
+draft: false
 description: 测试CMS配置
 category: 测试
 pinned: false
