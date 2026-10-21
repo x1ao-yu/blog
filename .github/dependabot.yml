@@ -18,5 +18,8 @@ updates:
     pull-request-branch-name:
       separator: "-"
     ignore:
+      # @mermanjs/web 0.9 起改为浏览器/Worker-only API，并移除了
+      # assertSafeSvgForDom 与 pkg/* 子路径导出，rehype-mermaid 需先迁移才能升级。
+      - dependency-name: "@mermanjs/web"
       - dependency-name: "*"
         update-types: ["version-update:semver-major"]
