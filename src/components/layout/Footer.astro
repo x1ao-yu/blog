@@ -70,7 +70,7 @@ try {
 				When you need to add the bottom content, 
 				you can directly edit src/config/FooterConfig.html without modifying Footer.astro.
 			-->
-			<div class="mx-0.5 my-2.5 flex gap-x-2 gap-y-2.5 justify-center flex-wrap">
+			<div class="mx-0.5 my-2.5 flex flex-wrap items-center justify-center gap-2 gap-y-2.5">
 				<span>Powered by</span>
 				<a
 					class="transition link text-(--primary) font-medium"
@@ -83,6 +83,16 @@ try {
 					target="_blank"
 					href="https://github.com/CuteLeaf/Firefly">Firefly</a
 				>
+				<span class="text-black/20 dark:text-white/20" aria-hidden="true">|</span>
+				<a
+					target="_blank"
+					rel="noopener"
+					href="https://www.cloudflare.com/"
+					class="flex items-center transition-transform hover:scale-105"
+					aria-label="Cloudflare"
+				>
+					<img src="/pic/cf-logo.png" alt="Cloudflare" class="h-5 w-auto" />
+				</a>
 			</div>
 		</div>
 	</div>
