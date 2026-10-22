@@ -5,7 +5,7 @@
 backend:
   name: github
   repo: x1ao-yu/blog
-  branch: master
+  branch: main
   base_url: https://sveltia-cms-auth.wangjinfu2003.workers.dev # 鉴权 Worker（GitHub OAuth 中转）
   commit_messages:
     create: 'docs: 新增文章 "{{slug}}"'
