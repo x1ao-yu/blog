@@ -1,11 +1,14 @@
 ---
-title: "我的常用软件清单"
-published: 2026-10-13
-description: "整理我日常真正在用的软件清单，涵盖系统增强、效率工具、网络下载、影音娱乐、开发终端与浏览器扩展等场景，每条都附上推荐理由，持续更新。"
-image: ''
-tags: ["软件", "推荐"]
-category: "软件"
-draft: true
+title: 我的常用软件清单
+published: 2026-10-22
+draft: false
+description: 整理一些好用的软件
+tags:
+  - 软件
+  - 推荐
+category: 软件
+pinned: false
+comment: true
 ---
 
 <!--
@@ -33,6 +36,11 @@ draft: true
 
 > [!NOTE] 关于本清单
 > 清单只收录我日常真正在用的软件，不追求大而全。内容会随时间增删，最近更新：2026-10-13。
+
+## AI
+
+梁神发布的DSH（DeepSeek Harness） 太强大了，只做了一个最简易的框架，全部开源，想要什么功能自己整插件，这才是真正的自由。
+[![](pasted-image-1792652299597.png)](https://www.deepseek.com/harness/)
 
 ## 系统增强
 
@@ -66,7 +74,7 @@ draft: true
 
 软件只是工具，顺手最重要。这份清单会不定期增删，也欢迎在评论区分享你的心头好。
 
----
+***
 
 <!-- 可选：如果想让读者一站式拿到各软件官网，可以加一个汇总区
 
