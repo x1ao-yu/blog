@@ -12,12 +12,15 @@ export const commentConfig: CommentConfig = {
 		// 是否启用文章访问量统计功能
 		visitorCount: true,
 		// Twikoo JS 文件地址，支持 CDN 链接
-		// 中国推荐1: https://registry.npmmirror.com/twikoo/1.7.20/files/dist/twikoo.min.js
-		// 中国推荐2: https://s4.zstatic.net/npm/twikoo@1.7.20/dist/twikoo.min.js
-		// 国际推荐: https://cdn.jsdelivr.net/npm/twikoo@1.7.20/dist/twikoo.min.js
-		jsUrl: "https://cdn.jsdelivr.net/npm/twikoo@1.7.20/dist/twikoo.min.js",
+		// 注意：前端版本需与服务端保持一致（服务端当前 2.0.17）
+		// 中国推荐1: https://registry.npmmirror.com/twikoo/2.0.17/files/dist/twikoo.min.js
+		// 中国推荐2: https://s4.zstatic.net/npm/twikoo@2.0.17/dist/twikoo.min.js
+		// 国际推荐: https://cdn.jsdelivr.net/npm/twikoo@2.0.17/dist/twikoo.min.js
+		jsUrl: "https://cdn.jsdelivr.net/npm/twikoo@2.0.17/dist/twikoo.min.js",
 		// Twikoo 自定义 CSS 文件地址，为空则不加载
-		cssUrl: "/assets/css/twikoo-custom.css",
+		// 2.x 适配层：内部 @import 引入上游 twikoo-custom.css，再补 el-* → tk-* 的样式映射。
+		// 上游自己跟进 2.x 之后，把这里改回 /assets/css/twikoo-custom.css 并删掉覆盖层即可。
+		cssUrl: "/assets/css/twikoo-2-overrides.css",
 	},
 
 	//waline评论系统配置

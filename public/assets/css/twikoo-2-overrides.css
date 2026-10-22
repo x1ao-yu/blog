@@ -1,0 +1,148 @@
+/*
+ * Twikoo 2.x 本地适配层（Firefly 主题）
+ *
+ * 为什么需要这层：
+ *   Twikoo 2.0 把 UI 从 Element UI 换成了自研组件，类名 el-* → tk-*。
+ *   上游 public/assets/css/twikoo-custom.css 里带 el-* 的覆盖规则在 2.x 下不再命中，
+ *   表现为输入框、按钮、标签、分页回落到 Twikoo 默认的 Element 蓝（#409eff），暗色下尤其刺眼。
+ *
+ * 为什么不直接改上游那份：
+ *   那份文件与 upstream/master 逐字节相同。改它等于从"继承上游"变成"手工维护一个上游仍在迭代的文件"，
+ *   上游将来跟进 2.x、把同一批 el-* 换成 tk-* 时必然大面积冲突。
+ *   所以这里用 @import 把上游那份原样引进（它只含 tk-* 的规则继续生效），本文件只补 2.x 缺失的部分。
+ *
+ * 何时可以删掉本文件：
+ *   上游自己升级 Twikoo 到 2.x 并改好 twikoo-custom.css 之后，把 commentConfig.cssUrl 改回
+ *   /assets/css/twikoo-custom.css 并删除本文件即可，清理成本接近零。
+ */
+
+@import url("./twikoo-custom.css");
+
+/* ------------------------------------------------------------------
+ * 输入框 / 文本域
+ * 2.x 的输入元素统一带 tk-input__inner；textarea 额外带 tk-textarea__inner，
+ * 但两者都有 tk-input__inner，所以覆盖一个选择器即可同时命中。
+ * ------------------------------------------------------------------ */
+.twikoo .tk-input__inner {
+  background-color: var(--tk-bg);
+  border-color: var(--tk-border);
+  color: var(--tk-text);
+}
+
+.twikoo .tk-input__inner:hover {
+  border-color: color-mix(in oklch, var(--tk-accent) 55%, var(--tk-border) 45%);
+}
+
+.twikoo .tk-input__inner:focus {
+  border-color: var(--tk-accent);
+  box-shadow: 0 0 0 2px color-mix(in oklch, var(--tk-accent) 20%, transparent);
+}
+
+.twikoo .tk-input__inner::placeholder {
+  color: color-mix(in oklch, var(--tk-muted) 75%, var(--tk-bg) 25%);
+}
+
+/* 禁用态：2.x 用 .tk-input.is-disabled */
+.twikoo .tk-input.is-disabled .tk-input__inner {
+  background-color: color-mix(in oklch, var(--tk-bg) 88%, var(--tk-border) 12%);
+  border-color: var(--tk-border);
+  color: color-mix(in oklch, var(--tk-text) 55%, var(--tk-bg) 45%);
+}
+
+/* 输入组前后缀（如网址前缀、字数统计） */
+.twikoo .tk-input-group__append,
+.twikoo .tk-input-group__prepend {
+  background-color: color-mix(in oklch, var(--tk-bg) 90%, var(--tk-accent) 10%);
+  border-color: var(--tk-border);
+  color: var(--tk-muted);
+}
+
+/* ------------------------------------------------------------------
+ * 按钮
+ * 2.x 的语义按钮只剩 --primary / --info / --text（success/warning/danger 已移除）
+ * ------------------------------------------------------------------ */
+
+/* 主按钮：背景与边框使用主题主色 */
+.twikoo .tk-button--primary {
+  background-color: var(--tk-accent);
+  border-color: var(--tk-accent);
+  color: #fff;
+}
+
+.twikoo .tk-button--primary:not(.is-disabled):hover,
+.twikoo .tk-button--primary:not(.is-disabled):focus {
+  background-color: color-mix(in oklch, var(--tk-accent) 88%, #fff 12%);
+  border-color: color-mix(in oklch, var(--tk-accent) 88%, #fff 12%);
+  color: #fff;
+}
+
+.twikoo .tk-button--primary:not(.is-disabled):active {
+  background-color: color-mix(in oklch, var(--tk-accent) 86%, #000 14%);
+  border-color: color-mix(in oklch, var(--tk-accent) 86%, #000 14%);
+  color: #fff;
+}
+
+.twikoo .tk-button--primary.is-disabled,
+.twikoo .tk-button--primary.is-disabled:hover,
+.twikoo .tk-button--primary.is-disabled:focus,
+.twikoo .tk-button--primary.is-disabled:active {
+  background-color: color-mix(in oklch, var(--tk-accent) 55%, transparent);
+  border-color: color-mix(in oklch, var(--tk-accent) 55%, transparent);
+  color: color-mix(in oklch, #fff 70%, transparent);
+}
+
+/* 次级按钮：默认按钮（含 --info）跟随主题浅色 */
+.twikoo .tk-button:not(.tk-button--primary):not(.tk-button--text) {
+  background-color: color-mix(in oklch, var(--tk-bg) 90%, var(--tk-accent) 10%);
+  border-color: var(--tk-border);
+  color: var(--tk-text);
+}
+
+.twikoo .tk-button:not(.tk-button--primary):not(.tk-button--text):not(.is-disabled):hover,
+.twikoo .tk-button:not(.tk-button--primary):not(.tk-button--text):not(.is-disabled):focus {
+  background-color: color-mix(in oklch, var(--tk-bg) 84%, var(--tk-accent) 16%);
+  border-color: var(--tk-accent);
+  color: var(--tk-accent);
+}
+
+/* 文字按钮（取消、切换 Markdown 预览等） */
+.twikoo .tk-button--text {
+  color: var(--tk-accent);
+}
+
+.twikoo .tk-button--text:not(.is-disabled):hover,
+.twikoo .tk-button--text:not(.is-disabled):focus {
+  color: color-mix(in oklch, var(--tk-accent) 88%, #fff 12%);
+}
+
+/* ------------------------------------------------------------------
+ * 标签 / 分页 / 加载
+ * ------------------------------------------------------------------ */
+.twikoo .tk-tag-blue {
+  color: var(--tk-accent);
+  background-color: var(--tk-accent-soft);
+  border-color: color-mix(in oklch, var(--tk-accent) 50%, transparent);
+}
+
+.twikoo .tk-pagination-pager.__current {
+  color: #fff;
+  background-color: var(--tk-accent);
+}
+
+/* 2.x 的 loading mask 已自带 absolute + flex 居中，无需额外定位规则 */
+.twikoo .tk-loading-spinner .path {
+  stroke: var(--tk-accent);
+}
+
+/* ------------------------------------------------------------------
+ * 全屏透明模式（毛玻璃）：输入类面板补 backdrop-filter
+ * ------------------------------------------------------------------ */
+body.wallpaper-transparent .twikoo .tk-input__inner,
+body.wallpaper-transparent .twikoo .tk-input-group__append,
+body.wallpaper-transparent .twikoo .tk-input-group__prepend,
+body.wallpaper-transparent .twikoo .tk-preview-container,
+body.wallpaper-transparent .twikoo .OwO .OwO-body {
+  background-color: var(--tk-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
