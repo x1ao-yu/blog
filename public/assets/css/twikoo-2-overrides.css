@@ -137,11 +137,11 @@
 /* ------------------------------------------------------------------
  * 全屏透明模式（毛玻璃）：输入类面板补 backdrop-filter
  * ------------------------------------------------------------------ */
+/* 注意：OwO 面板的毛玻璃上游已有（twikoo-custom.css 第 275 行），此处不重复 */
 body.wallpaper-transparent .twikoo .tk-input__inner,
 body.wallpaper-transparent .twikoo .tk-input-group__append,
 body.wallpaper-transparent .twikoo .tk-input-group__prepend,
-body.wallpaper-transparent .twikoo .tk-preview-container,
-body.wallpaper-transparent .twikoo .OwO .OwO-body {
+body.wallpaper-transparent .twikoo .tk-preview-container {
   background-color: var(--tk-bg);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
