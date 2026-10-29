@@ -65,7 +65,7 @@
 		"gray-matter": "^4.0.3",
 		"hast-util-from-html": "^2.0.3",
 		"hastscript": "^9.0.1",
-		"katex": "^0.19.0",
+		"katex": "^0.19.1",
 		"l2d-widget": "^0.1.1",
 		"marked": "^18.1.0",
 		"mdast-util-to-string": "^4.0.0",
@@ -88,15 +88,15 @@
 		"stylus": "^0.64.0",
 		"svelte": "^5.57.2",
 		"tailwindcss": "^4.3.3",
-		"takumi-js": "^2.14.0",
+		"takumi-js": "^2.18.1",
 		"tsx": "^4.23.15",
 		"typescript": "^6.0.3",
-		"unist-util-visit": "^5.1.0",
-		"wrangler": "^4.151.1"
+		"unist-util-visit": "^5.2.0",
+		"wrangler": "^4.152.0"
 	},
 	"devDependencies": {
 		"@astrojs/ts-plugin": "^1.10.12",
-		"@biomejs/biome": "2.5.15",
+		"@biomejs/biome": "2.6.3",
 		"@iconify-json/mdi": "^1.2.3",
 		"@iconify-json/svg-spinners": "^1.2.4",
 		"@tailwindcss/vite": "^4.3.3",
